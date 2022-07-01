@@ -1,4 +1,6 @@
-import styled from 'styled-components';
+import React from 'react';
+import style from './Button.module.css'
+/*import styled from 'styled-components';
 
 const Button = styled.button`
   width: 100%;
@@ -19,20 +21,20 @@ const Button = styled.button`
     background: #ac0e77;
     border-color: #ac0e77;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.26);
-}
+  }
 
-@media (min-width: 768px){
-  width : auto;
-}
+  @media (min-width: 768px){
+    width : auto;
+  }
 
-`;
+`;*/
 
-/*const Button = props => {
+const Button = props => {
   return (
-    <button type={props.type} className="button" onClick={props.onClick}>
+    <button className={style.button} type={props.type} onClick={props.onClick}>
       {props.children}
     </button>
   );
-};*/
+};
 
 export default Button;

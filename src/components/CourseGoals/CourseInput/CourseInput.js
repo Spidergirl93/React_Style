@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 
 import Button from '../../UI/Button/Button';
-import './CourseInput.css';
+import style from './CourseInput.module.css';
 
-import styled from 'styled-components';
+
+/*import styled from 'styled-components';
 
 const ValidForm = styled.div`
   
@@ -33,6 +34,7 @@ const ValidForm = styled.div`
     border-color: #8b005d;
   }
 `;
+*/
 
 
 
@@ -59,10 +61,10 @@ const CourseInput = props => {
 
   return (
     <form onSubmit={formSubmitHandler}>
-      <ValidForm invalid={!isValid}>
+      <div className={`${style['form-control']} ${!isValid && style.invalid}`}>
         <label>Course Goal</label>
         <input type="text" onChange={goalInputChangeHandler} />
-      </ValidForm>
+      </div>
       <Button type="submit">Add Goal</Button>
     </form>
   );
