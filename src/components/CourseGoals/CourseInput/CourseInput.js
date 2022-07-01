@@ -14,12 +14,14 @@ const ValidForm = styled.div`
     font-weight: bold;
     display: block;
     margin-bottom: 0.5rem;
+    color : ${props => (props.invalid ? '#ee0303' : 'black')}
   }
 
   & input {
     display: block;
     width: 100%;
-    border: 1px solid #ccc;
+    border: 1px solid ${props => (props.invalid ? 'red' : '#ccc')};
+    background: ${props => (props.invalid ? '#d88abe' : 'transparent')}};
     font: inherit;
     line-height: 1.5rem;
     padding: 0 0.25rem;
@@ -30,16 +32,6 @@ const ValidForm = styled.div`
     background: #fad0ec;
     border-color: #8b005d;
   }
-
-  &.invalid input{
-    background: #d88abe;
-    border-color: #e40000;
-  }
-
-  &.invalid label{
-    color: #ee0303;
-  }
-
 `;
 
 
@@ -67,7 +59,7 @@ const CourseInput = props => {
 
   return (
     <form onSubmit={formSubmitHandler}>
-      <ValidForm className={!isValid && 'invalid'}>
+      <ValidForm invalid={!isValid}>
         <label>Course Goal</label>
         <input type="text" onChange={goalInputChangeHandler} />
       </ValidForm>
